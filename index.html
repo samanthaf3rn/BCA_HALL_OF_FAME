@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Second Year BCA Hall of Fame</title>
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --purple-dark: #1a0026;
+            --purple-bright: #4b0082;
+            --text-light: #ffffff;
+            --card-bg: rgba(30, 30, 30, 0.9); /* Semi-transparent for glass effect */
+        }
+
+        /* SPARKLE ANIMATION */
+        @keyframes move-twink-back {
+            from {background-position:0 0;}
+            to {background-position:-10000px 5000px;}
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-light);
+            /* Deep Purple Base */
+            background: var(--purple-dark);
+            /* The "Sparkle" Layer */
+            background-image: 
+                radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+                radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+                radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
+                radial-gradient(rgba(212, 175, 55, 0.4), rgba(212, 175, 55, 0.1) 2px, transparent 30px);
+            background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px; 
+            background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+            animation: move-twink-back 1000s linear infinite;
+        }
+
+        header {
+            text-align: center;
+            padding: 100px 20px;
+            /* Gradient overlay to make text pop against sparkles */
+            background: linear-gradient(to bottom, rgba(26, 0, 38, 0.8), transparent);
+            border-bottom: 2px solid var(--gold);
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            color: var(--gold);
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+        }
+
+        .hall-container {
+            max-width: 1200px;
+            margin: 60px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 40px;
+            padding: 0 40px;
+        }
+
+        /* Member Card with Glassmorphism */
+        .member-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(5px); /* Blurs sparkles behind the card */
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: 0.4s;
+            text-align: center;
+        }
+
+        .member-card:hover {
+            transform: translateY(-15px);
+            border-color: var(--gold);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+        }
+
+        .member-card img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .info {
+            padding: 20px;
+        }
+
+        .info h2 {
+            margin: 10px 0 5px;
+            color: var(--gold);
+            letter-spacing: 1px;
+        }
+
+        .info span {
+            color: #b19cd9;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .quote {
+            margin-top: 15px;
+            font-style: italic;
+            color: #ddd;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>SECOND YEAR BCA<br>HALL OF FAME</h1>
+        <p>The Future of Technology, Class of 2027</p>
+        <a href="gallery.html" style="color: var(--gold); text-decoration: none; font-weight: bold; border: 1px solid var(--gold); padding: 8px 20px; border-radius: 20px; margin-top: 15px; display: inline-block; transition: 0.3s;" onmouseover="this.style.background='var(--gold)'; this.style.color='black'" onmouseout="this.style.background='transparent'; this.style.color='var(--gold)'">
+        ✨ View Photo Gallery ✨
+    </a>
+    </header>
+
+    <div class="hall-container">
+        <div class="member-card">
+            <img src="Ant.jpeg" alt="Student Photo">
+            <div class="info">
+                <h2>Antonio Amaral</h2>
+                <p class="quote">"Not everything that shines is gold, except me"</p>
+            </div>
+        </div>
+
+        <div class="member-card">
+            <img src="Flamica.jpeg" alt="Student Photo">
+            <div class="info">
+                <h2>Flamica Almeida</h2>
+                <p class="quote">"Quietly Observant, Silently Sarcastic"</p>
+            </div>
+        </div>
+        <div class="member-card">
+            <img src="Tiru.jpeg" alt="Student Photo">
+            <div class="info">
+                <h2>Chippala Tirumalesh</h2>
+                <p class="quote">"I need attendance."</p>
+            </div>
+        </div>
+
+      <div class="member-card">
+            <img src="Soorya.jpeg" alt="Student Photo">
+            <div class="info">
+                <h2>G. Sooryanarayan</h2>
+                <p class="quote">"I'm used to being weak. But that doesn't mean I'll stay weak."</p>
+            </div>
+        </div>
+        <div class="member-card">
+            <img src="Garvit.jpeg" alt="Student Photo">
+            <div class="info">
+                <h2>Garvit Pratap</h2>
+                <p class="quote">"I need a room full of mirrors to be surrounded by winners."</p>
+            </div>
+        </div>
+
+
+        <div class="member-card">
+            <img src="Judah.jpeg" alt="Student Photo">
+            <div class="info">
+                <h2>Judah D'souza</h2>
+                <p class="quote">"We accept the love we think we deserve" - Stephen Chbosky</p>
+            </div>
+        </div>
+        <div class="member-card">
+            <img src="Karan.jpeg" alt="Student Photo">
+            <div class="info">
+                <h2>Karan Chetry</h2>
+                <p class="quote">"Looking left because I'm right."</p>
+            </div>
+        </div>
+        <div class="member-card">
+            <img src="Karl.jpeg" alt="Student Photo">
+            <div class="info">
+                <h2>Karl De Souza</h2>
+                <p class="quote">"This for everybody going through tough times. Believe me, been there, done that." - Pitbull</p>
+            </div>
+        </div>
+        <div class="member-card">
+            <img src="Krishna.jpeg" alt="Student Photo">
+            <div class="info">
+                <h2>Krishna Sopte</h2>
+                <p class="quote">"I'm Veg"</p>
+            </div>
+        </div>
+        <div class="member-card">
+            <img src="Liam.jpeg" alt="Student Photo">
+            <div class="info">
+                <h2>Liam Fernandes</h2>
+                <p class="quote">"Confidence louder than my words"</p>
+            </div>
+        </div>
+        <div class="member-card">
+            <img src="Lionel.jpeg" alt="Student Photo">
+            <div class="info">
+                <h2>Lionel Fernandes</h2>
+                <p class="quote">"When the power of love overcomes the love of power the world will know peace." - Jimi Hendrix</p>
+            </div>
+        </div>
+        <div class="member-card">
+            <img src="Nash.jpeg" alt="Student Photo">
+            <div class="info">
+                <h2>Nash Gomes</h2>
+                <p class="quote">"Hello, You." - Joe Goldberg</p>
+            </div>
+        </div>
+
+        <div class="member-card">
+            
+            <img src="Ryan.jpeg" alt="Student Photo">
+             <div class="info">
+                <h2>Ryan Fernandes</h2>
+                <p class="quote">"Stalin laughed seeing this"</p>
+            </div>
+        </div>
+        
+         <div class="member-card">
+            
+            <img src="Samantha.jpeg" alt="Student Photo">
+             <div class="info">
+                <h2>Samantha Fernandez</h2>
+                <p class="quote">"I live for the CHXSE"</p>
+            </div>
+        </div>
+        <div class="member-card">
+            
+            <img src="Saniya.jpeg" alt="Student Photo">
+             <div class="info">
+                <h2>Samantha Kukanoor</h2>
+                <p class="quote">"A living proof that dreams have no deadline."</p>
+            </div>
+        </div>
+
+        <div class="member-card">
+            
+            <img src="Smriti.jpeg" alt="Student Photo">
+             <div class="info">
+                <h2>Smriti Naik</h2>
+                <p class="quote">"Code Sassy, Think Classy"</p>
+            </div>
+        </div>
+        
+        <div class="member-card">
+            
+            <img src="Sarthak.jpeg" alt="Student Photo">
+             <div class="info">
+                <h2>Sarthak Bhatt</h2>
+                <p class="quote">"I put the 'pro' in procrastinate"</p>
+            </div>
+        </div>
+        
+        <div class="member-card">
+            
+            <img src="Tasmiya.jpeg" alt="Student Photo">
+             <div class="info">
+                <h2>Tasmiya Soudagar</h2>
+                <p class="quote">"She proved dreams never expire."</p>
+            </div>
+        </div>
+        
+        
+        <div class="member-card">
+            
+            <img src="Vinit.jpeg" alt="Student Photo">
+             <div class="info">
+                <h2>Vinit Gaonkar</h2>
+                <p class="quote">"Code Sassy, Think Classy"</p>
+            </div>
+        </div>
+        
+
+    </div>
+
+</body>
+</html>
