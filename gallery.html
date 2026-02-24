@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BCA Gallery - Memories</title>
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --purple-dark: #1a0026;
+            --purple-light: #b19cd9;
+        }
+
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: var(--purple-dark);
+            font-family: 'Segoe UI', sans-serif;
+            overflow: hidden;
+            background-image: radial-gradient(white, rgba(255,255,255,.2) 1px, transparent 20px),
+                              radial-gradient(var(--gold), transparent 1px);
+            background-size: 100px 100px, 150px 150px;
+        }
+
+        h2 {
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+        }
+
+        .carousel-container {
+            width: 100%;
+            overflow-x: scroll;
+            display: flex;
+            padding: 60px 0;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+        }
+
+        .carousel-container::-webkit-scrollbar { display: none; }
+
+        .carousel-item {
+            flex: 0 0 450px;
+            margin: 0 25px;
+            scroll-snap-align: center;
+            position: relative;
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .carousel-item img {
+            width: 100%;
+            aspect-ratio: 16 / 9; 
+            object-fit: cover;
+            border: 2px solid var(--gold);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.7);
+            cursor: zoom-in;
+        }
+
+        .caption {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            background: rgba(26, 0, 38, 0.85);
+            backdrop-filter: blur(10px);
+            color: var(--gold);
+            padding: 15px;
+            border-radius: 0 0 20px 20px;
+            border-top: 1px solid var(--gold);
+            text-align: center;
+            font-size: 0.95rem;
+            font-weight: bold;
+        }
+
+        .carousel-item:hover { transform: scale(1.05); }
+
+        #lightbox {
+            position: fixed;
+            z-index: 9999;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(10, 0, 15, 0.98);
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(15px);
+        }
+
+        #lightbox-content img {
+            max-width: 85vw;
+            max-height: 70vh;
+            border: 3px solid var(--gold);
+            border-radius: 10px;
+            box-shadow: 0 0 50px rgba(212, 175, 55, 0.4);
+        }
+
+        #lightbox-caption {
+            margin-top: 20px;
+            color: var(--gold);
+            font-size: 1.4rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        #lightbox-counter {
+            margin-top: 10px;
+            color: var(--purple-light);
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+        }
+
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--gold);
+            font-size: 4rem;
+            cursor: pointer;
+            padding: 20px;
+            transition: 0.3s;
+            user-select: none;
+        }
+
+        .nav-btn:hover { color: white; }
+        .prev-btn { left: 20px; }
+        .next-btn { right: 20px; }
+
+        .close-btn {
+            position: absolute;
+            top: 20px; right: 30px;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+        }
+
+        .back-link {
+            margin-top: 40px;
+            color: white;
+            text-decoration: none;
+            opacity: 0.7;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .back-link:hover { opacity: 1; color: var(--gold); }
+
+        .instructions {
+            color: var(--purple-light);
+            font-size: 0.8rem;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Class Moments</h2>
+
+    <div class="carousel-container" id="mainCarousel">
+        <div class="carousel-item">
+            <img src="Mentor.jpeg" alt="Mentor 1">
+            <div class="caption">Mentor Mentee Session</div>
+        </div>
+        <div class="carousel-item">
+            <img src="Mentor2.jpeg" alt="Mentor 2">
+            <div class="caption">Mentor Mentee Session</div>
+        </div>
+        <div class="carousel-item">
+            <img src="Pluspoints24.jpeg" alt="Plus Points">
+            <div class="caption">Plus Points 24'</div>
+        </div>
+        <div class="carousel-item">
+            <img src="Trad.jpeg" alt="Plus Points">
+            <div class="caption">Traditional Day 25'</div>
+        </div>
+        <div class="carousel-item">
+            <img src="Techbytes25.jpeg" alt="Techbytes">
+            <div class="caption">Techbytes 25' Winners 🏆</div>
+        </div>
+        <div class="carousel-item">
+            <img src="Bytes.jpeg" alt="Techbytes 2">
+            <div class="caption">Techbytes 25' Winners 🏆</div>
+        </div>
+        <div class="carousel-item">
+            <img src="Techlipse.jpeg" alt="Techlipse">
+            <div class="caption">Techlipse 25'</div>
+        </div>
+        <div class="carousel-item">
+            <img src="Techlipse2.jpeg" alt="Techlipse Boys">
+            <div class="caption">Techlipse 25' (The Boys)</div>
+        </div>
+        <div class="carousel-item">
+            <img src="Socials.jpeg" alt="Socials">
+            <div class="caption">Socials 25' 🎉</div>
+        </div>
+        </div>
+        <div class="carousel-item">
+            <img src="Haryana.jpeg" alt="Socials">
+            <div class="caption">Interstate youth exchange at Haryana</div>
+        </div>
+        
+        <div class="carousel-item">
+            <img src="StudioB2.jpeg" alt="Studio">
+            <div class="caption">Studio Visit 🏭</div>
+        </div>
+        <div class="carousel-item">
+            <img src="vipul.jpeg" alt="Vipul Sir">
+            <div class="caption">Au Revoir Vipul Sir 👋</div>
+        </div>
+        <div class="carousel-item">
+            <img src="Field2.jpeg" alt="Field 1">
+            <div class="caption">Field Trip 25 🌿</div>
+        </div>
+        <div class="carousel-item">
+            <img src="Field.jpeg" alt="Field 2">
+            <div class="caption">Field Trip 25</div>
+        </div>
+        <div class="carousel-item">
+            <img src="Pluspoints.jpeg" alt="Plus Points">
+            <div class="caption">Plus Points 25'</div>
+        </div>
+        <div class="carousel-item">
+            <img src="funweek2.jpeg" alt="Plus Points">
+            <div class="caption">Fun Week 26'</div>
+        </div>
+        <div class="carousel-item">
+            <img src="Techlipse3.jpeg" alt="Techlipse 3">
+            <div class="caption">Techlipse 26'</div>
+        </div>
+        <div class="carousel-item">
+            <img src="Techlipse5.jpeg" alt="Techlipse 5">
+            <div class="caption">Techlipse 26'</div>
+        </div>
+    </div>
+
+    <p class="instructions">Scroll horizontally to explore • Click to zoom</p>
+    <a href="index.html" class="back-link">← Return to Hall of Fame</a>
+
+    <div id="lightbox">
+        <span class="close-btn">&times;</span>
+        <button class="nav-btn prev-btn">❮</button>
+        <div id="lightbox-content"></div>
+        <button class="nav-btn next-btn">❯</button>
+        <div id="lightbox-caption"></div>
+        <div id="lightbox-counter"></div>
+    </div>
+
+    <script>
+        const lightbox = document.getElementById('lightbox');
+        const content = document.getElementById('lightbox-content');
+        const caption = document.getElementById('lightbox-caption');
+        const counter = document.getElementById('lightbox-counter');
+        const items = Array.from(document.querySelectorAll('.carousel-item'));
+        
+        let currentIndex = 0;
+
+        function showImage(index) {
+            currentIndex = index;
+            const item = items[currentIndex];
+            const src = item.querySelector('img').src;
+            const text = item.querySelector('.caption').innerText;
+            
+            content.innerHTML = `<img src="${src}">`;
+            caption.innerText = text;
+            counter.innerText = `${currentIndex + 1} / ${items.length}`;
+            lightbox.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        items.forEach((item, i) => {
+            item.querySelector('img').addEventListener('click', () => showImage(i));
+        });
+
+        document.querySelector('.next-btn').addEventListener('click', (e) => {
+            e.stopPropagation();
+            showImage((currentIndex + 1) % items.length);
+        });
+
+        document.querySelector('.prev-btn').addEventListener('click', (e) => {
+            e.stopPropagation();
+            showImage((currentIndex - 1 + items.length) % items.length);
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox || e.target.classList.contains('close-btn')) {
+                lightbox.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (lightbox.style.display === 'flex') {
+                if (e.key === "ArrowRight") showImage((currentIndex + 1) % items.length);
+                if (e.key === "ArrowLeft") showImage((currentIndex - 1 + items.length) % items.length);
+                if (e.key === "Escape") {
+                    lightbox.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
