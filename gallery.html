@@ -30,15 +30,39 @@
             color: var(--gold);
             text-transform: uppercase;
             letter-spacing: 3px;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+            text-align: center;
+        }
+
+        /* Fixed Navigation Link */
+        .back-link {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            color: white;
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 30px;
+            border: 1px solid var(--gold);
+            backdrop-filter: blur(5px);
+            font-weight: bold;
+            transition: 0.3s;
+            z-index: 1000;
+        }
+
+        .back-link:hover {
+            background: var(--gold);
+            color: var(--purple-dark);
+            box-shadow: 0 0 15px var(--gold);
         }
 
         .carousel-container {
             width: 100%;
             overflow-x: scroll;
             display: flex;
-            padding: 60px 0;
+            padding: 40px 0;
             scroll-snap-type: x mandatory;
             scroll-behavior: smooth;
             scrollbar-width: none;
@@ -142,25 +166,22 @@
             cursor: pointer;
         }
 
-        .back-link {
-            margin-top: 40px;
-            color: white;
-            text-decoration: none;
-            opacity: 0.7;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .back-link:hover { opacity: 1; color: var(--gold); }
-
         .instructions {
             color: var(--purple-light);
             font-size: 0.8rem;
-            margin-top: 15px;
+            margin-top: 10px;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 600px) {
+            .carousel-item { flex: 0 0 300px; margin: 0 15px; }
+            .back-link { padding: 8px 12px; font-size: 0.8rem; }
         }
     </style>
 </head>
 <body>
+
+    <a href="index.html" class="back-link">← Return to Hall of Fame</a>
 
     <h2>Class Moments</h2>
 
@@ -272,7 +293,6 @@
     </div>
 
     <p class="instructions">Scroll horizontally to explore • Click to zoom</p>
-    <a href="index.html" class="back-link">← Return to Hall of Fame</a>
 
     <div id="lightbox">
         <span class="close-btn">&times;</span>
@@ -299,11 +319,8 @@
             const captionElement = item.querySelector('.caption');
             
             if (imgElement && captionElement) {
-                const src = imgElement.src;
-                const text = captionElement.innerText;
-                
-                content.innerHTML = `<img src="${src}">`;
-                caption.innerText = text;
+                content.innerHTML = `<img src="${imgElement.src}">`;
+                caption.innerText = captionElement.innerText;
                 counter.innerText = `${currentIndex + 1} / ${items.length}`;
                 lightbox.style.display = 'flex';
                 document.body.style.overflow = 'hidden';
