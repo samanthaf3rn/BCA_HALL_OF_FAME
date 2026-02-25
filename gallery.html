@@ -174,6 +174,10 @@
             <div class="caption">Mentor Mentee Session</div>
         </div>
         <div class="carousel-item">
+            <img src="Mentor3.jpeg" alt="Mentor 3">
+            <div class="caption">Mentor Mentee Session</div>
+        </div>
+        <div class="carousel-item">
             <img src="Pluspoints24.jpeg" alt="Plus Points 24">
             <div class="caption">Plus Points 24'</div>
         </div>
@@ -190,6 +194,22 @@
             <div class="caption">Techbytes 25' Winners 🏆</div>
         </div>
         <div class="carousel-item">
+            <img src="funweek3.jpeg" alt="Fun Week">
+            <div class="caption">Fun Week 25'</div>
+        </div>
+        <div class="carousel-item">
+            <img src="funweek4.jpeg" alt="Fun Week">
+            <div class="caption">Fun Week 25'</div>
+        </div>
+        <div class="carousel-item">
+            <img src="funweek5.jpeg" alt="Fun Week">
+            <div class="caption">Fun Week 25'</div>
+        </div>
+        <div class="carousel-item">
+            <img src="funweek6.jpeg" alt="Fun Week">
+            <div class="caption">Fun Week 25'</div>
+        </div>
+        <div class="carousel-item">
             <img src="Techlipse.jpeg" alt="Techlipse">
             <div class="caption">Techlipse 25'</div>
         </div>
@@ -200,6 +220,10 @@
         <div class="carousel-item">
             <img src="Socials.jpeg" alt="Socials">
             <div class="caption">Socials 25' 🎉</div>
+        </div>
+        <div class="carousel-item">
+            <img src="Akshata.jpeg" alt="Akshata">
+            <div class="caption">Memories with Miss Akshata</div>
         </div>
         <div class="carousel-item">
             <img src="Haryana.jpeg" alt="Haryana Trip">
@@ -230,8 +254,8 @@
             <div class="caption">Fun Week 26'</div>
         </div>
         <div class="carousel-item">
-            <img src="TechnoSaga.jpeg" alt="Fun Week">
-            <div class="caption">TechnoSaga 26'</diTv>
+            <img src="TechnoSaga.jpeg" alt="TechnoSaga">
+            <div class="caption">TechnoSaga 26'</div>
         </div>
         <div class="carousel-item">
             <img src="Techlipse3.jpeg" alt="Techlipse 3">
@@ -239,6 +263,10 @@
         </div>
         <div class="carousel-item">
             <img src="Techlipse5.jpeg" alt="Techlipse 5">
+            <div class="caption">Techlipse 26'</div>
+        </div>
+        <div class="carousel-item">
+            <img src="Techlipse6.jpeg" alt="Techlipse 6">
             <div class="caption">Techlipse 26'</div>
         </div>
     </div>
@@ -267,14 +295,19 @@
         function showImage(index) {
             currentIndex = index;
             const item = items[currentIndex];
-            const src = item.querySelector('img').src;
-            const text = item.querySelector('.caption').innerText;
+            const imgElement = item.querySelector('img');
+            const captionElement = item.querySelector('.caption');
             
-            content.innerHTML = `<img src="${src}">`;
-            caption.innerText = text;
-            counter.innerText = `${currentIndex + 1} / ${items.length}`;
-            lightbox.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
+            if (imgElement && captionElement) {
+                const src = imgElement.src;
+                const text = captionElement.innerText;
+                
+                content.innerHTML = `<img src="${src}">`;
+                caption.innerText = text;
+                counter.innerText = `${currentIndex + 1} / ${items.length}`;
+                lightbox.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            }
         }
 
         items.forEach((item, i) => {
